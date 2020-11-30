@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<script src="index.js"></script>
+<input type="date" id="dob" />
+<button onclick="cal()">Submit</button>
+<br />
+<table  border="1" id="mytable">
+    <tr>
+        <th>Years</th>
+        <td id="years"></td>
+    </tr>
+    <tr>
+        <th>Months</th>
+        <td id="months"></td>
+    </tr>
+    <tr>
+        <th>Days</th>
+        <td id="days"></td>
+    </tr>
+    <tr>
+        <th>Hours</th>
+        <td id="hours"></td>
+    </tr>
+    <tr>
+        <th>Minutes</th>
+        <td id="minutes"></td>
+    </tr>
+</table>
+
+
+<script>
+
+document.getElementById('mytable').style.display = "none";
+
+function cal(){
+    var dob = document.getElementById('dob').value;
+
+    var od = new Date(dob);
+    var cd = new Date();
+
+    var mymili = cd.getTime() - od.getTime();
+    var myYears = Math.floor(mymili/(1000*60*60*24*30*12));
+    var myMonths = Math.floor(mymili/(1000*60*60*24*30));
+    var myDays = Math.floor(mymili/(1000*60*60*24));
+    var myHours = Math.floor(mymili/(1000*60*60));
+    var myMinutes = Math.floor(mymili/(1000*60));
+
+    document.getElementById('mytable').style.display = "inline-block";
+
+    document.getElementById('years').innerHTML = myYears;
+    document.getElementById('months').innerHTML = myMonths;
+    document.getElementById('days').innerHTML = myDays;
+    document.getElementById('hours').innerHTML = myHours;
+    document.getElementById('minutes').innerHTML = myMinutes;    
+
+}
+
+
+
+</script>
+<h1><cenrter>Age Calculator</cenrter></h1>
+		Date Of Birth: 
+		<input type="date" id="birth_date">
+		<input class="btn" type="button" value="Calculate Age" onclick="ageCalculate()">
+        <br/><br/>
+        Age: 
+        <br/>
+        <br/>
+        <div id="age"></div>
+        
+<p id="demo"></p>
+
+</body>
+</html>
